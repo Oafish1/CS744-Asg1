@@ -3,5 +3,6 @@
 
 After setting up `Hadoop` and `Spark` as per [ASG1](https://pages.cs.wisc.edu/~shivaram/cs744-fa21/assignment1.html),
 ```bash
-python spark_sorting.py /data/export.csv
+cd deliverables
+python spark_sorting.py ../data/export.csv
 ```
