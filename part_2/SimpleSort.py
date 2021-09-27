@@ -7,20 +7,18 @@ spark = (SparkSession
          .builder
          .appName('SimpleSort')
          .config('spark.executor.memory', '30g')
-         .config('spark.executor.cores', '5')
          .config('spark.driver.memory', '30g')
+         .config('spark.executor.cores', '5')
          .config('spark.task.cpus', '1')
-         .master('local')
          .getOrCreate()
 )
 
 
-# Typical HDFS Ports: 9870 8088
+# Typical HDFS Ports: 9870 8088 9000
 # Use same as in hadoop-3.2.2/etc/hadoop/core-site.xml
 # Define Hadoop paths
-hdfs_prefix = 'hdfs://10.10.1.1:9000/'
-input_file = hdfs_prefix + sys.argv[1]
-output_file = hdfs_prefix + sys.argv[2]
+input_file = sys.argv[1].rstrip()
+output_file = sys.argv[2].rstrip()
 
 # Read and sort
 df = spark.read.format('csv').option('header', True).load(input_file)

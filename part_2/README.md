@@ -2,15 +2,16 @@
 
 First put the input file into `hdfs`
 ```bash
-hadoop fs -put export.csv /
+hadoop fs -put <input-file-local-location> <input-file-hdfs-location>
 ```
 
 Then run `SimpleSort.py`.  The spark environment is pre-configured
 ```bash
-spark-submit SimpleSort.py export.csv output
+sh run.sh <master-node-spark-address> <input-file-hdfs-location> <output-file-location>
 ```
+it is likely that both the input file location and output file location will be in `hdfs`.
 
-The output can be found in the `hdfs` directory `output`.  Pulling into the local environment can be done with
+Pulling into the local environment from `hdfs` can be done with
 ```bash
-hadoop fs -get /output .
+hadoop fs -get <output-file-location> <local-download-location>
 ```
