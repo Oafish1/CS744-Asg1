@@ -1,1 +1,1 @@
-spark-submit --master $1 PageRank.py $2 $3
+spark-submit --master $1 PageRank.py
