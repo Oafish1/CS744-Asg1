@@ -11,5 +11,11 @@ sh run.sh
 
 On one of the worker nodes, the following command can be run to simulate worker failure
 ```bash
-sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches"
+sudo sh -c "sync; echo 3 > /proc/sys/vm/drop_caches";
+
+#list processes
+ps aux | grep spark
+#kill worker process
+sudo kill ...
+
 ```
