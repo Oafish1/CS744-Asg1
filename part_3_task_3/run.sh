@@ -1,0 +1,1 @@
+/mnt/data/spark-3.1.2-bin-hadoop3.2/bin/spark-submit --master $1 PageRank.py $2 $3
